@@ -8,4 +8,4 @@
 - **2024-01-27:** Build fastnar för Netlify då sista commit inte hamnat på Github. .parcel-cache filen är för stor och ignoreras inte trots lagd i .gitignore. Försök med git rm .parcel-chace/data.mdb och commit för att ta bort stor fil och sedan ny push till main. Filen är fortfarande kvar och gör sync för commits omöjlig. Build fastnar. 
 - **2024-01-27:** Tagit bort repositoriet från Github, startat nytt, commitat och pushat aktuella filer till nya repot. Fortfarande samma fel. .Parcel-cache/datamdb är för stor. 
 - **2024-01-27:** Återigen tagit bort repositoriet. Skapat ny katalog för projekt. Gjort om hela prodecuren med npm init, installation av parcel, samtliga paket, konstruerat webbplats, lagt parcel-cache & node_modules i .gitignore. Publicerat till Github, länkat till Netlify, publicerat på Netlify. Denna gång gick det, nu finns webbplatsen på Netlify och Github. 
-- **2024-01-27:** Kört npm run build med lyckat resultat. Samtliga bilder optimerade 
+- **2024-01-27:** Kört npm run build med lyckat resultat. Samtliga bilder optimerade, htmlkod minifierad, csskod minifierad och jskod minifierad

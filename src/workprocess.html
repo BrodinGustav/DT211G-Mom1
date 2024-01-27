@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Moment 1</title>
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+        <header>
+            <!--Öppna mobilmeny-->
+            <button class="menu-btn open" id="open-menu">
+                <span class="menu-icon">
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                </span>
+            </button>
+            <!--Navigering-->
+        <nav id="nav-menu">
+            <button class="menu-btn close" id="close-menu">
+                <span class="menu-icon">
+                    <span class="bars cross1"></span>
+                    <span class="bars cross2"></span>
+                </span>
+            </button>
+            <ul>
+                <li><a href="index.html">Startsida</a></li>
+                <li><a href="pictures.html">Bilder</a></li>
+                <li><a href="workprocess.html">Arbetsprocessen</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Arbetsprocessen</h1>
+        <article>
+                <h2>Frågor som ska svaras</h2>
+                <ul class="info">
+                    <li>Fråga 1. Beskriv i detalj hur arbetsprocessen för utveckling och publicering fungerar</li>
+                    <li>Fråga 2. Beksriv vad som är automatiserat och vilka verktyg som använts</li>
+                </ul>
+                </article>
+                </section>
+                <section>
+                    <h3>Fråga 1.</h3>
+                <article>               
+                <p class="workprocess">
+                        Första steget i arbetsprocessen är att skapa en undermapp för projektet och via undermappen
+                        skapa ett NPM-projekt. Ett NPM-projekt skapas genom kommandot <strong>npm init</strong> i kommando centralen.
+                        Och genom kommandot får vi en package-json-fil som innehåller metadata kring projeketet. 
+                    </p>
+                    <hr>
+                    <p class="workprocess">
+                        Därefter ska tredjepartsbibliotek installeras, i aktuellt fall paketet parcel. Detta paket installeras genom kommandot
+                        <strong>npm install parcel --dev-save</strong>. Observera att kommandot --dev-save läggs till för att paketet ska sparas 
+                        som en utvecklingsberoende. Detta innebär att paketet endast används under utveckling och ej i produktion.
+                    </p>
+                    <hr>
+                    <p class="workprocess">
+                        Paket som laddas ner via npm landar i mappen "node_modules" vilken snabbt blir överfullt. Denna mapp exkluderas från git-repositoriet 
+                        genom att mappen inkluderas i .gitignore-filen. På så vis minimerar vi tiden för andra utvecklare att ladda ner projeketet
+                        då "node_modules" innehåller en väldig massa filer. För att installera npm paketen som används i projektet behöver utvecklaren
+                        endast använda sig av kommandot <strong>npm install</strong>. Tillsammans med "node_modules" så lägger vi även "dist-katalogen" i 
+                        .gitignore filen då denna katalog skapas automatiskt när projektet laddas ner. Det är via "dist-katalogen" som parcel kommer köra samtliga
+                        filer för skapandet av webbplatsen, hit kopierar parcel alla filer från "src-katalogen" vilka används under utvecklingsmiljön.
+                    </p>
+                    <hr>
+                        <p class="workprocess">
+                        När NPM-projeketet är skapat och parcel är installerat justerar vi metadatan i package-json-filen för att rikta in vilken fil vi 
+                        ska starta på i parcel-projektet. Detta görs genom syntaxen <strong>"source" : "src/index.htlm".</strong>
+                        När väl metadatan är justerad skapar vi "src-katalogen" för projektet, detta är den katalog som parcel använder som standard.
+                        I denna katalog läggs alla JS-filer, CS-filer, HTML-filer, bilder etc, vika senare kommer kopieras till "dist-katalogen" automatiskt. 
+                    </p>
+                    <hr>
+                    <p class="workprocess"> 
+                        Nästa moment är att lägga in följande script i package-json-filen:
+                        "scripts" : {
+                            "start" : "parcel",
+                            "build" : "parcel build"
+                        },
+                    </p>
+                        <p class="workprocess">
+                        Scriptet för start körs via kommandot <strong>npm run start</strong> och startar således en liveserver för webbplatsen. Här arbetar
+                        vi i en utvecklingsmiljö.
+                        Scriptet för build körs via kommandor <strong>npm run build</strong> och används när man ska göra webbplatsen färdig för publicering, då optimerar
+                        parcel samtliga filer.
+                    </p>
+                    <p class="workprocess">
+                        Därefter gör vi om vår javascriptfil till en modul genom att lägga till syntaxen <strong>"type="module"</strong> i sökvägen till JS-filen vid head-elementet
+                        för html-filen. På så vis blir JS-filen en extern JS-fil som man kan inkludera från andra JS-filer. Parcel kommer att optimera
+                        JS-koden genom att paketera ihop samtlig JS-kod till en extern fil och sen inkludera den till webbplatsen.
+                    </p>
+                    <hr>
+                    <p class="workprocess">
+                        För automatisering av, i detta fall, minifiering av JS, CSS och HTML-kod installeras specifika paket för ändamålen.
+                        För minifiering av JS installeras paketet <strong>uglifyjs</strong> ner genom syntaxen <strong>npm install uglifyjs --save-dev</strong> i terminalen.
+                        För minifiering av CSS installeras paketet <strong>uglifycss</strong> ner genom syntaxen <strong>npm install uglifycss --save-dev</strong> i terminalen.
+                        För minifiering av HTML installeras paketet <strong>html-minifer</strong> ner genom syntaxen <strong>npm install html-minifier --save-dev</strong> i terminalen.
+                    </p>
+                    <hr>
+                    <p class="workprocess">
+                        Paketen installeras och läggs därefter in i <strong>"scripts"</strong> under <strong>package.json-filen</strong>.
+                        Paketen läggs ihop med specifik syntax tillsammans med scriptet <strong>build</strong> för att få parcel att köra samtliga paket 
+                        vid skapandet av webbplatsen. 
+                        Kodexempel: 
+                            <div class="codeexample">
+                                <strong>  '"scripts": 
+                                <p> "start": "parcel",</p>
+                            <p>"build": "parcel build",</p>
+                            <p>"build:js": "uglifyjs dist/main.js -o dist/main.min.js",</p>
+                            <p>"build:css": "uglifycss dist/style.css -o dist/style-min.css",</p>
+                            <p>"build:html": "html-minifier-terser dist/index.html -o dist/index.min.html"'</strong></p>
+                        </div>
+                        <p class="workprocess">
+                        Genom kodexemplet kommer JS att minifieras, CSS att minifieras och HTML att minifieras när vi kör koden "npm run build" i terminalen, vilket i sin tur 
+                        bygger ihop utvecklingsmiljön till färdig webbplats. 
+                    </p>
+                    <hr>
+                    <p class="workprocess">
+                        Nästa steg är att bygga vår hemsida. Först kör vi koden "npm run start" i terminalen varpå parcel öppnar en liveserver åt oss.
+                        Nu kan vi skapa vår layout och funktioner enligt praxis med HTML, CSS och JS.  
+                    </p>
+                    <hr>
+                    <p class="workprocess">
+                        När väl utvecklingsmiljön känns färdig är vi redo att publicera webbplatsen, i detta fall används netlify och github. 
+                        Publiceringen sker via VS Code där vi går via "Source Control" och vidare med "Publish to Github". 
+                        Nu är projektet uppe på Github och vi går vidare till Netlify. 
+                        Väl inne vid Netlify väljer vi <strong>"add new site"</strong> och vidare till "import an existing projekt" där vi sedan klickar på 
+                        <strong>"deploy with Github".</strong>
+                    </p>
+                    <hr>
+                    <p class="workprocess">
+                        När vi sökt upp projektet kontrollerar vi att <strong>"build commando"</strong> i projektets inställningar via Netlify överensstämmer med 
+                        scriptsyntaxen vi gjort i package.json-filen. Samt kontrollerar vi att katalogen för publicering överenstämmer i Netlifys inställningar
+                        med parcels katalog i VS kode, dvs "dist"-katalogen.
+                        Slutligen klickar vi vidare på <strong>"Deploy parcel-demo-webb"</strong> vid Netlify varpå Github-repot knyts ihop med Netlify. Nu kommer
+                        Netlify reagera ifall Github-repot justeras med commit/push. Om så kommer Netlify kopiera över filerna varpå projektet på Netlify 
+                        automatiskt bygger och publicerar webbplatsen när ändringar sker på GitHub-repot.
+                    </p>           
+                    <hr>        
+                    <p class="workprocess">
+                        Nu ligger webbplatsen uppe på Github och Netlify i sin utvecklingsmiljö. För att nu publicera den som färdig webbplats
+                        använder vi oss av koden "npm run build" i terminalen. Nu kör parcel samtliga installerade paket och optimerar webbplatsen 
+                        som sedan publiceras på Github, vilket Netlify känner av och i sin tur uppdaterar webbplatsen på sin sida. 
+                    </p>        
+                    <hr>      
+                   <h3>Fråga 2.</h3>
+                   <p class="workprocess">
+                        De funktioner som är automatiserade för projektet är följande,
+                        </p>
+                        <ul class="info">
+                        <li>Minifiering av Javscript genom paketet "uglify-js"</li>
+                        <li>Minifiering av CSS genom paketet "uglify-css"</li>
+                        <li>Minifierng av html genom paketet "html-minifier-terser"</li>
+                        <li>Transpiliering av Javascript genom bakåtkompabilitet i genererade filer genom syntaxen "browserslist": "> 0.5%, last 2 versions, not dead" i package.json-filen</li>
+                        <li>Genom modifiering med "browserslist" säger koden att webbplatsen ska stödjas av samtliga webbläsare förutom de mycket äldre varianter. 
+                            Koden säger även att om en webbläsare inte längre uppdateras så anses den död och kommer således inte att stödjas av webbplatsen.
+                            Genom att webbplatsen stöjs av äldre webbläsare måste JS-kod transpileras så att den är kompatibel med aktuell webbläsare. </li>
+                        <li>Optimering av bilder som sker automatiskt vid uppdatering av bilder görs genom picture-elementet via parcels praxis. Exempel; "source srcset bild.jpg?as=avif&width=450 type image/avif".
+                            "Source koden" säger att den ursprungliga jpg-filen ska visas som avif ifall formatet stöds, samt att bredden ska vara 450 px.
+                        </li>
+                        <li>Kopiering av arbetsfiler till mapp för publicering av optimerade filer sker genom koden "npm run build" i terminalen. 
+                            Nu kommer Parcel skapa en "dist-katalog" vilken den fyller med de optimerade filerna från "src-katalogen".
+                        </li>
+                    </ul>
+                    <hr>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Gustav Brodin</p>
+        <p>DT211G - Automatisering</p>
+        <p>VT 2024 Termin 1</p>
+    </footer>
+    </body>
+</html>

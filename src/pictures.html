@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Moment 1</title>
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+        <header>
+            <!--Öppna mobilmeny-->
+            <button class="menu-btn open" id="open-menu">
+                <span class="menu-icon">
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                </span>
+            </button>
+            <!--Navigering-->
+        <nav id="nav-menu">
+            <button class="menu-btn close" id="close-menu">
+                <span class="menu-icon">
+                    <span class="bars cross1"></span>
+                    <span class="bars cross2"></span>
+                </span>
+            </button>
+            <ul>
+                <li><a href="index.html">Startsida</a></li>
+                <li><a href="pictures.html">Bilder</a></li>
+                <li><a href="workprocess.html">Arbetsprocessen</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Bilder</h1>
+            <article>
+                <h2>Kaffekoppar i olika kulörer</h2>
+                <div class="picture-container">
+               <picture>
+                <source srcset="bilder/kopp1.png?as=avif&width=450" type="image/avif">
+                <source srcset="bilder/kopp1.png?as=webp&width=450" type="image/webp">
+                <source srcset="bilder/kopp1.png?width=200">
+                <img src="bilder/kopp1.png" alt="kaffekopp i beige kulör">
+               </picture>
+               <picture>
+                <source srcset="bilder/kopp2.png?as=avif&width=450" type="image/avif">
+                <source srcset="bilder/kopp2.png?as=webp&width=450" type="image/webp">
+                <source srcset="bilder/kopp2.png?width=200">
+                <img src="bilder/kopp2.png" alt="kaffekopp i grön kulör">
+               </picture>
+               <picture>
+                <source srcset="bilder/kopp3.png?as=avif&width=450" type="image/avif">
+                <source srcset="bilder/kopp3.png?as=webp&width=450" type="image/webp">
+                <source srcset="bilder/kopp3.png?width=200">
+                <img src="bilder/kopp3.png" alt="kaffekopp i blå kulör">
+               </picture>
+               <picture>
+                <source srcset="bilder/kopp4.png?as=avif&width=450" type="image/avif">
+                <source srcset="bilder/kopp4.png?as=webp&width=450" type="image/webp">
+                <source srcset="bilder/kopp4.png?width=200">
+                <img src="bilder/kopp1.png" alt="kaffekopp i vit kulör">
+               </picture>
+               <picture>
+                <source srcset="bilder/kopp5.png?as=avif&width=450" type="image/avif">
+                <source srcset="bilder/kopp5.png?as=webp&width=450" type="image/webp">
+                <source srcset="bilder/kopp5.png?width=200">
+                <img src="bilder/kopp5.png" alt="kaffekopp i mörkgrön kulör">
+               </picture>
+            </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Gustav Brodin</p>
+        <p>DT211G - Automatisering</p>
+        <p>VT 2024 Termin 1</p>
+    </footer>
+    </body>
+</html>

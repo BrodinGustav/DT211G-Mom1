@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Moment 1</title>
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+        <header>
+            <!--Öppna mobilmeny-->
+            <button class="menu-btn open" id="open-menu">
+                <span class="menu-icon">
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                </span>
+            </button>
+            <!--Navigering-->
+        <nav id="nav-menu">
+            <button class="menu-btn close" id="close-menu">
+                <span class="menu-icon">
+                    <span class="bars cross1"></span>
+                    <span class="bars cross2"></span>
+                </span>
+            </button>
+            <ul>
+                <li><a href="index.html">Startsida</a></li>
+                <li><a href="pictures.html">Bilder</a></li>
+                <li><a href="workprocess.html">Arbetsprocessen</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>DT211G</h1>
+            <h2>Moment 1</h2>
+            <article>
+                <h2>Info om uppgiften</h2>
+                <ul class="info">
+                    <li>En responsiv webbplats ska skapas innehållande Html, CSS & Javascript, samt bilder</li>
+                    <li>NodeJS ska användas för att automatisera uppgifterna. I detta fall används Parcel.</li>
+                    <li>Installerade paket ska finnas med i en package.json-fil och applikationen ska gå att återsställa med kommandot npm install</li>
+                </ul>
+                <h3>Uppgifter som ska automatiseras</h3>
+                <ul class="info">
+                    <li>Minifiering av CSS</li>
+                    <li>Transpiliering och minifiering av Javascript</li>
+                    <li>Minifiering av HTML</li>
+                    <li>Optimering av bilder vilket ska ske automatiskt vid uppdatering av bilder (moderna bildformat ska användas)</li>
+                    <li>Bakåtkompabilitet i genererade filer ska finnas</li>
+                    <li>Kopiering av arbetsfiler till mapp för publicering av optimerade filer</li>
+                </ul>
+                <h4>Övrigt ska webbplatsen innehålla</h4>
+                <ul class="info">
+                    <li>Startsida med info om uppgiften</li>
+                    <li>Undersida för bilder med minst fem stycken fotografier</li>
+                    <li>Undersida för publicering där arbetsprocessen beskrivs</li>
+                    <li>Skiljd struktur mellan arbetsfiler och publiceringsfiler ska finnas</li>
+                </ul>
+                <h5>Publicering av webbplats</h5>
+                <ul class="info">
+                    <li>Webbplatsen ska publiceras till en webbhost som inte är baserad på FTP/SFTP</li>
+                    <li>Webbplatsen ska publiceras automatiskt vid uppdatering av webbplatsen i Github-repot</li>
+                    <li>I detta fall kommer Github och Netlify användas</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Gustav Brodin</p>
+        <p>DT211G - Automatisering</p>
+        <p>VT 2024 Termin 1</p>
+    </footer>
+    </body>
+</html>

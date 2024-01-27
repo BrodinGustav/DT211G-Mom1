@@ -5,7 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "build parcel",
+    "build": "parcel build",
     "uglify-js": "uglifyjs src/main.js -o dist/main.min.js",
     "uglify-css": "uglifycss src/style.css > dist/style.min.css",
     "minify-html": "html-minifier --input-dir src --output-dir dist --file-ext html"
